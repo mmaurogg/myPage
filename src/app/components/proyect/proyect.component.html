@@ -1,0 +1,27 @@
+<h1>{{proyect.titulo}}</h1>
+<hr>
+
+<div class="row">
+
+    <div class="col-md-2">
+        <div class="col-md-10">
+            <img [src]="proyect.imgLenguaje" class="img-fluid" [alt]="proyect.titulo">
+            <br><br>
+            <a [routerLink]="['/proyects']" class="btn btn-success btn-block">Regresar</a>
+        </div>
+    </div>
+
+    <div class="col-md-10">
+        <h3>{{proyect.lenguaje}}</h3>
+        <hr>
+        <p>
+            {{proyect.video}}
+        </p>
+
+
+    </div>
+
+
+
+
+</div>
