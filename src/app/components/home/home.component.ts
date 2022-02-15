@@ -107,8 +107,8 @@ export class HomeComponent implements OnInit {
       ],
       cierre:{
         descripcion: "Mi interes en la programación inicia con la creacion de una base de datos para el almacenamiento de las gestiones de un equipo de cartera, las cuales se usarían despues para generar informes",
-        img1: "../../../assets/img/sql.png",
-        img2: "../../../assets/img/sql.png",
+        img1: "../../../assets/img/informe.png",
+        img2: "../../../assets/img/asesor.png",
       }
 
     };
