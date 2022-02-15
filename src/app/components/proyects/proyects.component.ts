@@ -24,7 +24,7 @@ export class ProyectsComponent implements OnInit {
 
 
   verProyecto( idx: number ){
-    this.router.navigate( ['/proyect',idx] );
+    this.router.navigate( ['/project',idx] );
   }
 
 

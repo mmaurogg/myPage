@@ -15,6 +15,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { ProyectComponent } from './components/proyect/proyect.component';
+import { OtrosComponent } from './components/otros/otros.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProyectComponent } from './components/proyect/proyect.component';
     NavbarComponent,
     HomeComponent,
     ProyectsComponent,
-    ProyectComponent
+    ProyectComponent,
+    OtrosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

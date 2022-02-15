@@ -1,4 +1,4 @@
-<h1>{{proyect.titulo}}</h1>
+<h3>{{proyect.titulo}}</h3>
 <hr>
 
 <div class="row">
@@ -7,21 +7,27 @@
         <div class="col-md-10">
             <img [src]="proyect.imgLenguaje" class="img-fluid" [alt]="proyect.titulo">
             <br><br>
-            <a [routerLink]="['/proyects']" class="btn btn-success btn-block">Regresar</a>
+            <a [routerLink]="['/projects']" class="btn btn-success btn-block">Regresar</a>
         </div>
     </div>
 
     <div class="col-md-10">
-        <h3>{{proyect.lenguaje}}</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="">
+                    {{proyect.lenguaje}}
+                </h3>
+            </div>
+            <div class="col-md-4 justify-content-end">
+                <a [href]="proyect.git" target="_blank" class="justify-content-end" *ngIf=" proyect.git ">
+                    <img src="../../../assets/img/github.png " class="h-50 img-fluid ">
+                </a>
+
+            </div>
+        </div>
         <hr>
-        <p>
-            {{proyect.video}}
-        </p>
-
-
+        <div>
+            <video [src]="proyect.video " class="col-md-9 " autoplay controls></video>
+        </div>
     </div>
-
-
-
-
 </div>

@@ -1,21 +1,27 @@
-<div class="col-mb-12">
+<div class="col-mb-12 container">
     <div class="row">
-        <div class="col-md-3 animated fadeIn fast">
-            <img src="../../../assets/img/foto-mao.jpg" class="img-fluid rounded-circle" alt="...">
+        <div class="col-md-4 animated fadeIn fast">
+            <img [src]="datos.foto" class="img-fluid rounded-circle" alt="...">
+            <div><span><a href="https://github.com/mmaurogg"><img src="../../../assets/img/github.png" class="border-0 w-30 p-30 img-thumbnail col-md-2" [alt]="">github.com/mmaurogg</a></span></div>
+            <div><span><a href="https://www.linkedin.com/in/mmaurogg/"><img src="../../../assets/img/linkedin.png" class="border-0 w-30 p-30 img-thumbnail col-md-2" [alt]="">linkedin.com/in/mmaurogg/</a></span></div>
+            <div><span><img src="../../../assets/img/email.png" class="border-0 w-30 p-30 img-thumbnail col-md-2" [alt]="">mmaurogg@gmail.com</span></div>
         </div>
         <div class="col-md-8 align-self-center">
             <div class="card-body">
-                <h1 class="card-title">{{datos.nombre}}</h1>
-                <div class="d-block">
+                <h1 class="card-title">{{datos.nombre | uppercase}}</h1>
+                <div class="d-block" *ngIf="mostrar">
                     <div class="row align-items-center animated fadeIn" *ngFor="let titulo of datos.titulos">
-                        <img [src]="titulo.universidad" class="border-0 vw-25 img-thumbnail col-md-2" [alt]="datos.universidad">
+                        <img [src]="titulo.universidad" class="border-0 w-30 p-30 img-thumbnail col-md-2" [alt]="datos.universidad">
                         <h5 class="col-md-auto">{{titulo.titulo}}</h5>
                     </div>
                 </div>
+                <a (click)="mostrar = false" class="btn btn-primary btn-block" *ngIf="mostrar">Ocultar Estudios</a>
+                <a (click)="mostrar = true" class="btn btn-primary btn-block" *ngIf="!mostrar">Mostrar Estudios</a>
             </div>
         </div>
     </div>
 </div>
+<br>
 
 <div>
     <div class="accordion" id="accordionExample">
@@ -26,13 +32,38 @@
             </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse container" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body row row-cols-3">
-                    <div class="animated fadeIn" *ngFor="let titulo of datos.titulos">
+                <div class="accordion-body row">
+                    <h5 class="text-center">Intereses profesionales</h5>
+                    <div class="col-md-4 animated fadeIn" *ngFor="let profesional of datos.profesionales">
                         <div class="w-25 p-25">
-                            <img [src]="titulo.universidad" class="border-0 img-thumbnail col-md-12" [alt]="datos.universidad">
+                            <img [src]="profesional.img" class="border-0 img-thumbnail col-md-12" [alt]="profesional.descripcion">
                         </div>
+                        <div class="">
+                            <strong class="col-md-auto">{{profesional.descripcion}}</strong>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <h5 class="text-center">Aptitudes</h5>
+                    <div class="col-md-4 animated fadeIn" *ngFor="let aptitud of datos.aptitudes">
                         <div class="w-25 p-25">
-                            <strong class="col-md-auto">{{titulo.titulo}}</strong>
+                            <img [src]="aptitud.img" class="border-0 img-thumbnail col-md-12" [alt]="aptitud.descripcion">
+                        </div>
+                        <div class="">
+                            <strong class="col-md-auto">{{aptitud.descripcion}}</strong>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <h5 class="text-center">Intereses personales</h5>
+                    <div class="col-md-4 animated fadeIn" *ngFor="let gusto of datos.gustos">
+                        <div class="w-25 p-25">
+                            <img [src]="gusto.img" class="border-0 img-thumbnail col-md-12" [alt]="gusto.descripcion">
+                        </div>
+                        <div class="">
+                            <strong class="col-md-auto">{{gusto.descripcion}}</strong>
                         </div>
                     </div>
                 </div>
@@ -45,10 +76,15 @@
             </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as
-                    the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
+                <div class="accordion-body row">
+                    <div class="col-md-4 animated fadeIn" *ngFor="let conocimiento of datos.conocimientos">
+                        <div class="w-25 p-25">
+                            <img [src]="conocimiento.img" class="border-0 img-thumbnail col-md-12" [alt]="conocimiento.descripcion">
+                        </div>
+                        <div class="">
+                            <strong class="col-md-auto">{{conocimiento.descripcion}}</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,12 +95,31 @@
             </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                    does limit overflow.
+                <div class="accordion-body row row-cols-3">
+                    <div class="col-md-4 animated fadeIn" *ngFor="let experiencia of datos.experiencias">
+                        <div class="w-25 p-25">
+                            <img [src]="experiencia.img" class="border-0 img-thumbnail col-md-12" [alt]="experiencia.descripcion">
+                        </div>
+                        <div class="">
+                            <strong class="col-md-auto">{{experiencia.descripcion}}</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<br><br>
+
+<div>
+
+    <div class="d-block">
+        <div class="row align-items-center animated fadeIn">
+            <img [src]="datos.cierre.img1" class="border-0 col-md-1 img-thumbnail" [alt]="datos.universidad">
+            <p class="col-md-auto col-md-8">{{datos.cierre.descripcion}}</p>
+            <img [src]="datos.cierre.img2" class="border-0 col-md-1 img-thumbnail" [alt]="datos.universidad">
+        </div>
+    </div>
+
 </div>
